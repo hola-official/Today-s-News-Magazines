@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's News Magazines</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <a href="#">Today's News</a>
+        </div>
+
+        <input type="text" name="search" placeholder="search news">
+    </header>
+
+    <div class="wrapper">
+        <div class="news-single">
+            <h2><%- article.title.rendered %></h2>
+            <p><%- article.content.rendered %></p>
+        </div>
+    </div>
+</body>
+
+</html>
