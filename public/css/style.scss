@@ -1,8 +1,3 @@
-* {
-    text-decoration: none;
-    border: none;
-}
-
 body {
     margin: 0;
     font-family: 'Cormorant Garamond', sans-serif;
@@ -24,7 +19,7 @@ h2 {
     padding: 10px;
     color: #fff;
     background-color: #10555A;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
 
     &___search {
@@ -42,6 +37,7 @@ h2 {
     }
 
     &__logo a {
+        text-decoration: none;
         font-size: 100%;
         color: #fff;
     }
