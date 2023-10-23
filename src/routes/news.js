@@ -22,9 +22,9 @@ newsRouter.get('', async (req, res) => {
 })
 
 newsRouter.get('/:id', async (req, res) => {
-    let articleId = req.params.id
+    let articleID = req.params.id
     try {
-        const newsApi = await axios.get(`https://raddy.dev/wp-json/wp/v2/posts/${articleId}`);
+        const newsApi = await axios.get(`https://raddy.dev/wp-json/wp/v2/posts/${articleID}`);
         res.render('newsSingle', { article: newsApi.data })
     } catch (error) {
         if (error.response) {
@@ -36,6 +36,26 @@ newsRouter.get('/:id', async (req, res) => {
             res.render('newsSingle', { article: null })
         } else {
             res.render('newsSingle', { article: null })
+            console.error("Error", error.message);
+        }
+    }
+})
+
+newsRouter.post('', async (req, res) => {
+    let search = req.body.search
+    try {
+        const newsApi = await axios.get(`https://raddy.dev/wp-json/wp/v2/posts?search=${search}`);
+        res.render('newsSearch', { articles: newsApi.data })
+    } catch (error) {
+        if (error.response) {
+            res.render('newsSearch', { articles: null });
+            console.log(error.response.data);
+            console.log(error.response.headers);
+            console.log(error.response.status);
+        } else if (error.request) {
+            res.render('newsSearch', { articles: null })
+        } else {
+            res.render('newsSearch', { articles: null })
             console.error("Error", error.message);
         }
     }
